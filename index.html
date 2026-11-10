@@ -1,4 +1,4 @@
-
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -7,13 +7,13 @@
 
     <title>Portfolio | Zeina Vanka Azahra</title>
 
-    <!-- ICON BOOTSTRAP -->
+    <!-- BOOTSTRAP ICON -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- CSS -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -26,30 +26,35 @@
             --purple: #9146b8;
             --dark-purple: #572c70;
             --light-purple: #ead8f5;
+            --background: #f8f5ff;
             --white: #ffffff;
+            --text: #444;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: #f8f5ff;
-            color: #333;
+            background: var(--background);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
         section {
             min-height: 100vh;
-            padding: 110px 9% 60px;
+            padding: 110px 9% 80px;
+            scroll-margin-top: 70px;
         }
 
-        /* NAVBAR */
+        /* ================= NAVBAR ================= */
+
         header {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             padding: 18px 9%;
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,.08);
-            z-index: 100;
+            background: rgba(255,255,255,.96);
+            box-shadow: 0 3px 20px rgba(0,0,0,.06);
+            z-index: 1000;
         }
 
         .navbar {
@@ -71,13 +76,14 @@
 
         .nav-menu {
             display: flex;
+            align-items: center;
+            gap: 28px;
             list-style: none;
-            gap: 25px;
         }
 
         .nav-menu a {
-            color: #333;
-            font-size: 15px;
+            color: #444;
+            font-size: 14px;
             font-weight: 500;
             transition: .3s;
         }
@@ -93,34 +99,43 @@
         .menu-icon {
             display: none;
             font-size: 28px;
+            color: var(--dark-purple);
             cursor: pointer;
         }
 
-        /* HOME */
+        /* ================= HOME ================= */
+
         .home {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 40px;
+            gap: 60px;
+            background:
+                radial-gradient(circle at 90% 20%, #ead8f5 0, transparent 30%),
+                var(--background);
         }
 
         .home-content {
-            max-width: 600px;
+            max-width: 620px;
         }
 
         .home-content h3 {
-            font-size: 23px;
+            font-size: 22px;
+            font-weight: 500;
+            color: var(--purple);
         }
 
         .home-content h1 {
-            font-size: 43px;
+            font-size: 45px;
+            line-height: 1.3;
             color: var(--dark-purple);
-            margin: 10px 0;
+            margin: 12px 0;
         }
 
         .home-content h2 {
-            font-size: 21px;
-            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 22px;
         }
 
         .home-content h2 span {
@@ -128,12 +143,14 @@
         }
 
         .home-content p {
-            line-height: 1.8;
-            margin-bottom: 25px;
-            color: #555;
+            font-size: 15px;
+            line-height: 1.9;
+            color: #666;
+            margin-bottom: 28px;
         }
 
         /* BUTTON */
+
         .home-buttons {
             display: flex;
             gap: 15px;
@@ -141,20 +158,25 @@
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 27px;
+            border-radius: 30px;
             background: var(--purple);
             color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+            font-size: 14px;
             font-weight: 600;
-            transition: .3s;
             border: 2px solid var(--purple);
+            transition: .3s;
         }
 
         .btn:hover {
             background: var(--dark-purple);
             border-color: var(--dark-purple);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(87,44,112,.2);
         }
 
         .btn-contact {
@@ -163,55 +185,65 @@
         }
 
         .btn-contact:hover {
-            background: var(--purple);
             color: white;
         }
 
         /* FOTO PROFIL */
+
+        .home-image {
+            flex-shrink: 0;
+            position: relative;
+        }
+
         .home-image img {
-            width: 320px;
-            height: 320px;
+            width: 330px;
+            height: 330px;
             object-fit: cover;
             border-radius: 50%;
-            border: 8px solid var(--light-purple);
-            box-shadow: 0 0 25px rgba(145,70,184,.25);
+            border: 10px solid white;
+            box-shadow: 0 0 0 8px var(--light-purple),
+                        0 15px 40px rgba(87,44,112,.15);
         }
 
         /* SOCIAL MEDIA */
+
         .social-media {
-            margin-top: 25px;
+            display: flex;
+            gap: 13px;
+            margin-top: 30px;
         }
 
-        .social-media a,
-        .footer-social a {
-            display: inline-flex;
+        .social-media a {
+            width: 43px;
+            height: 43px;
+            display: flex;
             justify-content: center;
             align-items: center;
-            width: 42px;
-            height: 42px;
             border: 2px solid var(--purple);
             border-radius: 50%;
             color: var(--purple);
-            font-size: 20px;
-            margin-right: 10px;
+            font-size: 19px;
             transition: .3s;
         }
 
-        .social-media a:hover,
-        .footer-social a:hover {
+        .social-media a:hover {
             background: var(--purple);
             color: white;
+            transform: translateY(-5px);
         }
 
-        /* HEADING */
+        /* ================= HEADING ================= */
+
         .heading {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 45px;
+            font-size: 35px;
             color: var(--dark-purple);
+            margin-bottom: 55px;
+            font-weight: 700;
         }
 
-        /* ABOUT */
+        /* ================= ABOUT ================= */
+
         .about {
             background: white;
             display: flex;
@@ -220,61 +252,73 @@
         }
 
         .about-content {
-            max-width: 850px;
+            max-width: 900px;
             margin: auto;
-            background: #f8f5ff;
-            padding: 40px;
+            padding: 45px;
+            background: var(--background);
             border-radius: 20px;
             border-left: 6px solid var(--purple);
+            box-shadow: 0 8px 30px rgba(0,0,0,.04);
         }
 
         .about-content p {
-            line-height: 2;
             text-align: center;
-            font-size: 17px;
+            font-size: 16px;
+            line-height: 2;
+            color: #555;
         }
 
-        /* EDUCATION */
+        /* ================= EDUCATION ================= */
+
         .education-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            display: flex;
+            justify-content: center;
         }
 
         .education-box {
+            width: 450px;
             background: white;
             text-align: center;
-            padding: 35px 20px;
+            padding: 40px 30px;
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            box-shadow: 0 8px 30px rgba(0,0,0,.06);
+            border-bottom: 5px solid var(--purple);
             transition: .3s;
         }
 
         .education-box:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
         }
 
         .education-box i {
-            font-size: 45px;
+            font-size: 50px;
             color: var(--purple);
         }
 
         .education-box h3 {
+            font-size: 21px;
             color: var(--dark-purple);
-            margin: 18px 0 10px;
+            margin: 20px 0 10px;
         }
 
         .education-box p {
+            font-size: 14px;
             color: #666;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
         .education-box span {
             color: var(--purple);
             font-weight: 600;
+            font-size: 14px;
         }
 
-        /* PROJECTS */
+        /* ================= EXPERIENCE ================= */
+
+        .projects {
+            background: var(--background);
+        }
+
         .projects-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -283,73 +327,168 @@
 
         .project-box {
             background: white;
-            padding: 35px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,.07);
+            padding: 32px;
+            border-radius: 18px;
+            box-shadow: 0 7px 25px rgba(0,0,0,.05);
+            border: 1px solid #f0e7f5;
             transition: .3s;
         }
 
         .project-box:hover {
-            transform: translateY(-8px);
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(87,44,112,.12);
         }
 
         .project-box i {
-            font-size: 45px;
+            display: inline-flex;
+            width: 60px;
+            height: 60px;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-purple);
             color: var(--purple);
+            font-size: 28px;
+            border-radius: 15px;
+            margin-bottom: 18px;
         }
 
         .project-box h3 {
+            font-size: 19px;
             color: var(--dark-purple);
-            margin: 15px 0;
+            margin-bottom: 8px;
+        }
+
+        .project-box h4 {
+            font-size: 14px;
+            color: var(--purple);
+            margin-bottom: 15px;
         }
 
         .project-box p {
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.9;
             color: #666;
         }
 
         .project-box span {
             display: inline-block;
-            margin-top: 15px;
-            color: var(--purple);
+            margin-top: 18px;
+            padding: 7px 15px;
+            border-radius: 20px;
+            background: var(--light-purple);
+            color: var(--dark-purple);
+            font-size: 12px;
             font-weight: 600;
         }
 
-        /* CONTACT */
-        .contact {
+        /* ================= SKILLS ================= */
+
+        .skills {
             background: white;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .skills-box {
+            background: var(--background);
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #eee0f5;
+            transition: .3s;
+        }
+
+        .skills-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(87,44,112,.08);
+        }
+
+        .skills-box h3 {
+            color: var(--dark-purple);
+            font-size: 21px;
+            margin-bottom: 22px;
+        }
+
+        .skills-box h3 i {
+            color: var(--purple);
+            margin-right: 10px;
+        }
+
+        .skills-box ul {
+            list-style: none;
+        }
+
+        .skills-box ul li {
+            padding: 13px 0;
+            border-bottom: 1px solid #e8dbee;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .skills-box ul li:last-child {
+            border-bottom: none;
+        }
+
+        .skills-box ul li i {
+            color: var(--purple);
+            margin-right: 12px;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: var(--background);
         }
 
         .contact-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
+            gap: 22px;
+            max-width: 900px;
+            margin: auto;
         }
 
         .contact-box {
-            background: #f8f5ff;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: white;
             padding: 25px;
-            text-align: center;
-            border-radius: 15px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.04);
             transition: .3s;
         }
 
         .contact-box:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(87,44,112,.1);
         }
 
-        .contact-box i {
-            font-size: 35px;
+        .contact-box > i {
+            width: 55px;
+            height: 55px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-purple);
+            border-radius: 13px;
             color: var(--purple);
+            font-size: 25px;
         }
 
         .contact-box h3 {
-            margin: 10px 0;
+            font-size: 16px;
             color: var(--dark-purple);
+            margin-bottom: 5px;
         }
 
         .contact-box p,
         .contact-box a {
+            font-size: 13px;
             color: #666;
             word-break: break-word;
         }
@@ -358,65 +497,98 @@
             color: var(--purple);
         }
 
-        /* FOOTER */
+        /* ================= FOOTER ================= */
+
         .footer {
             background: var(--dark-purple);
-            padding: 25px 9%;
+            padding: 30px 9%;
             text-align: center;
             color: white;
         }
 
+        .footer p {
+            font-size: 14px;
+        }
+
         .footer-social {
-            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 18px;
         }
 
         .footer-social a {
-            border-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid white;
+            border-radius: 50%;
             color: white;
+            font-size: 18px;
+            transition: .3s;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 900px) {
-            section {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
+        .footer-social a:hover {
+            background: white;
+            color: var(--dark-purple);
+            transform: translateY(-4px);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
 
             header {
-                padding-left: 5%;
-                padding-right: 5%;
+                padding: 18px 5%;
+            }
+
+            section {
+                padding-left: 6%;
+                padding-right: 6%;
+            }
+
+            .home {
+                gap: 30px;
             }
 
             .home-content h1 {
-                font-size: 35px;
+                font-size: 36px;
             }
 
             .home-image img {
-                width: 260px;
-                height: 260px;
+                width: 270px;
+                height: 270px;
             }
 
-            .education-container {
-                grid-template-columns: repeat(2, 1fr);
+            .nav-menu {
+                gap: 17px;
+            }
+
+            .nav-menu a {
+                font-size: 12px;
             }
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 700px) {
+
             .menu-icon {
                 display: block;
-                color: var(--dark-purple);
             }
 
             .nav-menu {
                 display: none;
                 position: absolute;
-                top: 70px;
+                top: 75px;
                 left: 0;
                 width: 100%;
                 background: white;
                 flex-direction: column;
-                padding: 20px 9%;
-                gap: 18px;
+                align-items: flex-start;
+                padding: 25px 8%;
+                gap: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,.06);
             }
 
             #menu-toggle:checked ~ .nav-menu {
@@ -426,7 +598,8 @@
             .home {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 130px;
+                padding-top: 125px;
+                gap: 35px;
             }
 
             .home-image img {
@@ -438,24 +611,75 @@
                 font-size: 32px;
             }
 
-            .home-buttons {
+            .home-content h2 {
+                font-size: 17px;
+            }
+
+            .home-content p {
+                font-size: 14px;
+            }
+
+            .home-buttons,
+            .social-media {
                 justify-content: center;
             }
 
             .heading {
-                font-size: 30px;
+                font-size: 29px;
+                margin-bottom: 35px;
             }
 
-            .education-container,
             .projects-container,
+            .skills-container,
             .contact-container {
                 grid-template-columns: 1fr;
             }
 
             .about-content {
+                padding: 28px 22px;
+            }
+
+            .about-content p {
+                font-size: 14px;
+            }
+
+            .project-box {
                 padding: 25px;
             }
+
+            .skills-box {
+                padding: 25px;
+            }
+
+            .education-box {
+                width: 100%;
+            }
+
+            section {
+                padding-top: 100px;
+                padding-bottom: 65px;
+            }
         }
+
+        @media (max-width: 380px) {
+
+            .home-content h1 {
+                font-size: 27px;
+            }
+
+            .home-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .contact-box {
+                padding: 18px;
+            }
+        }
+
     </style>
 </head>
 
@@ -465,7 +689,7 @@
     <header>
         <nav class="navbar">
 
-            <h2 class="logo">Zeina<span>.</span></h2>
+            <h2 class="logo">Zeina<span></span></h2>
 
             <input type="checkbox" id="menu-toggle">
 
@@ -477,12 +701,14 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Experience</a></li>
+                <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
 
         </nav>
     </header>
+
 
     <!-- HOME -->
     <section id="home" class="home">
@@ -496,13 +722,15 @@
             <h2>Pelajar <span>| Rekayasa Perangkat Lunak</span></h2>
 
             <p>
-                Saya adalah seorang pelajar yang memiliki ketertarikan
-                dalam dunia teknologi, khususnya pengembangan website.
-                Saya senang belajar hal baru dan mengembangkan kemampuan
-                di bidang pemrograman.
+                Saya merupakan lulusan SMK Negeri 1 Kawali jurusan
+                Rekayasa Perangkat Lunak (RPL) yang memiliki minat
+                di bidang pengembangan web. Menguasai HTML, CSS,
+                dan PHP. Memiliki pengalaman membuat website
+                Company Profile dan Buku Tamu, serta pribadi yang
+                bertanggung jawab, kreatif, dan mampu bekerja sama
+                dalam tim.
             </p>
 
-            <!-- TOMBOL HOME -->
             <div class="home-buttons">
 
                 <a href="#about" class="btn">
@@ -516,32 +744,29 @@
 
             </div>
 
-            <!-- SOCIAL MEDIA HOME -->
+            <!-- SOCIAL MEDIA -->
             <div class="social-media">
 
-                <!-- EMAIL -->
-                <a href="mailto:zeinavankaazahra@gmail.com">
+                <a href="mailto:zeinavankaazahra@gmail.com"
+                   title="Email">
                     <i class="bi bi-envelope-fill"></i>
                 </a>
 
-                <!-- TELEPON -->
-                <a href="tel:085794574787">
+                <a href="tel:085794574787"
+                   title="Telepon">
                     <i class="bi bi-telephone-fill"></i>
                 </a>
 
-                <!-- ALAMAT -->
-                <a href="https://www.google.com/maps/search/?api=1&query=Panawangan+Ciamis" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-geo-alt-fill"></i>
+                <a href="https://www.linkedin.com/in/zeina-vanka-azahra-3124b8449"
+                   target="_blank" rel="noopener noreferrer"
+                   title="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
                 </a>
 
-                <!-- INSTAGRAM -->
-                <a href="https://www.instagram.com/zeii_v.a/" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-instagram"></i>
-                </a>
-
-                <!-- TIKTOK -->
-                <a href="https://www.tiktok.com/@a_v_z21" target="_blank" rel="noopener noreferrer">
-                    <i class="bi bi-tiktok"></i>
+                <a href="https://github.com/Zeinavankaazahra"
+                   target="_blank" rel="noopener noreferrer"
+                   title="GitHub">
+                    <i class="bi bi-github"></i>
                 </a>
 
             </div>
@@ -554,25 +779,28 @@
 
     </section>
 
+
     <!-- ABOUT -->
     <section id="about" class="about">
 
         <h2 class="heading">About <span>Me</span></h2>
 
         <div class="about-content">
+
             <p>
-                Perkenalkan, nama saya Zeina Vanka Azahra.
-                Saya merupakan pelajar SMK Negeri 1 Kawali
-                jurusan Rekayasa Perangkat Lunak (RPL).
-                Saya tertarik mempelajari pembuatan website,
-                desain antarmuka, dan pengembangan aplikasi.
-                Saya memiliki semangat untuk terus belajar,
-                mencoba hal baru, serta meningkatkan kemampuan
-                dalam bidang teknologi.
+                Saya merupakan lulusan SMK Negeri 1 Kawali jurusan
+                Rekayasa Perangkat Lunak (RPL) yang memiliki minat
+                di bidang pengembangan web. Menguasai HTML, CSS,
+                dan PHP. Memiliki pengalaman membuat website
+                Company Profile dan Buku Tamu, serta pribadi yang
+                bertanggung jawab, kreatif, dan mampu bekerja sama
+                dalam tim.
             </p>
+
         </div>
 
     </section>
+
 
     <!-- EDUCATION -->
     <section id="education" class="education">
@@ -582,63 +810,81 @@
         <div class="education-container">
 
             <div class="education-box">
+
                 <i class="bi bi-mortarboard-fill"></i>
+
                 <h3>SMK Negeri 1 Kawali</h3>
+
                 <p>Jurusan Rekayasa Perangkat Lunak (RPL)</p>
+
                 <span>2024 - Sekarang</span>
-            </div>
 
-            <div class="education-box">
-                <i class="bi bi-book-fill"></i>
-                <h3>SMP Negeri 1 Panawangan</h3>
-                <p>Pendidikan Sekolah Menengah Pertama</p>
-                <span>2021 - 2024</span>
-            </div>
-
-            <div class="education-box">
-                <i class="bi bi-book-half"></i>
-                <h3>SD Negeri 1 Panawangan</h3>
-                <p>Pendidikan Sekolah Dasar</p>
-                <span>2015 - 2021</span>
             </div>
 
         </div>
 
     </section>
 
-    <!-- PROJECTS -->
+
+    <!-- EXPERIENCE -->
     <section id="projects" class="projects">
 
-        <h2 class="heading">My <span>Projects</span></h2>
+        <h2 class="heading">My <span>Experience</span></h2>
 
         <div class="projects-container">
 
+            <!-- PKL -->
+            <div class="project-box">
+
+                <i class="bi bi-building"></i>
+
+                <h3>Praktik Kerja Lapangan (PKL)</h3>
+
+                <h4>PT Inovindo Digital Media</h4>
+
+                <p>
+                    Melaksanakan kegiatan Praktik Kerja Lapangan
+                    di PT Inovindo Digital Media untuk mengembangkan
+                    keterampilan dan pengalaman di bidang teknologi
+                    informasi serta pengembangan website.
+                </p>
+
+                <span>November 2026 - Februari 2027</span>
+
+            </div>
+
+
+            <!-- COMPANY PROFILE -->
             <div class="project-box">
 
                 <i class="bi bi-globe"></i>
 
-                <h3>Website Company Profile</h3>
+                <h3>Membuat Web Company Profile</h3>
 
                 <p>
-                    Website profil perusahaan yang menampilkan
-                    informasi perusahaan, layanan, artikel,
-                    galeri, dan kontak.
+                    Membuat website Company Profile untuk
+                    menampilkan informasi perusahaan, seperti
+                    profil, visi dan misi, layanan, serta kontak.
+                    Menggunakan HTML, CSS, JavaScript, dan Laravel.
                 </p>
 
                 <span>September 2026</span>
 
             </div>
 
+
+            <!-- BUKU TAMU -->
             <div class="project-box">
 
                 <i class="bi bi-journal-text"></i>
 
-                <h3>Website Buku Tamu</h3>
+                <h3>Membuat Web Buku Tamu</h3>
 
                 <p>
-                    Website untuk mengelola data tamu secara
-                    digital dengan fitur login dan pengelolaan
-                    data tamu.
+                    Mengembangkan website buku tamu untuk
+                    mempermudah proses pendataan pengunjung,
+                    pencatatan identitas, serta penyimpanan
+                    data tamu secara digital.
                 </p>
 
                 <span>Januari 2026</span>
@@ -649,6 +895,84 @@
 
     </section>
 
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills">
+
+        <h2 class="heading">My <span>Skills</span></h2>
+
+        <div class="skills-container">
+
+            <!-- HARD SKILL -->
+            <div class="skills-box">
+
+                <h3>
+                    <i class="bi bi-code-slash"></i>
+                    Hard Skill
+                </h3>
+
+                <ul>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        HTML
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        CSS
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Figma
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        PHP
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- SOFT SKILL -->
+            <div class="skills-box">
+
+                <h3>
+                    <i class="bi bi-person-check-fill"></i>
+                    Soft Skill
+                </h3>
+
+                <ul>
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Komunikasi
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Kerja Sama Tim
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Manajemen Waktu
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Bertanggung Jawab
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
     <!-- CONTACT -->
     <section id="contact" class="contact">
 
@@ -658,77 +982,108 @@
 
             <!-- EMAIL -->
             <div class="contact-box">
+
                 <i class="bi bi-envelope-fill"></i>
-                <h3>Email</h3>
-                <p>zeinavankaazahra@gmail.com</p>
+
+                <div>
+                    <h3>Email</h3>
+                    <p>zeinavankaazahra@gmail.com</p>
+                </div>
+
             </div>
+
 
             <!-- TELEPON -->
             <div class="contact-box">
+
                 <i class="bi bi-telephone-fill"></i>
-                <h3>Telepon</h3>
-                <p>0857-9457-4787</p>
+
+                <div>
+                    <h3>Telepon</h3>
+                    <p>0857-9457-4787</p>
+                </div>
+
             </div>
+
 
             <!-- ALAMAT -->
             <div class="contact-box">
+
                 <i class="bi bi-geo-alt-fill"></i>
-                <h3>Alamat</h3>
-                <p>Panawangan, Ciamis</p>
+
+                <div>
+                    <h3>Alamat</h3>
+                    <p>Panawangan, Kab. Ciamis</p>
+                </div>
+
             </div>
 
-            <!-- INSTAGRAM -->
+
+            <!-- LINKEDIN -->
             <div class="contact-box">
-                <i class="bi bi-instagram"></i>
-                <h3>Instagram</h3>
-                <a href="https://www.instagram.com/zeii_v.a/" target="_blank" rel="noopener noreferrer">
-                    @zeii_v.a
-                </a>
+
+                <i class="bi bi-linkedin"></i>
+
+                <div>
+                    <h3>LinkedIn</h3>
+
+                    <a href="https://www.linkedin.com/in/zeina-vanka-azahra-3124b8449"
+                       target="_blank" rel="noopener noreferrer">
+                        Profil LinkedIn
+                    </a>
+                </div>
+
             </div>
 
-            <!-- TIKTOK -->
+
+            <!-- GITHUB -->
             <div class="contact-box">
-                <i class="bi bi-tiktok"></i>
-                <h3>TikTok</h3>
-                <a href="https://www.tiktok.com/@a_v_z21" target="_blank" rel="noopener noreferrer">
-                    @a_v_z21
-                </a>
+
+                <i class="bi bi-github"></i>
+
+                <div>
+                    <h3>GitHub</h3>
+
+                    <a href="https://github.com/Zeinavankaazahra"
+                       target="_blank" rel="noopener noreferrer">
+                        Zeinavankaazahra
+                    </a>
+                </div>
+
             </div>
 
         </div>
 
     </section>
 
+
     <!-- FOOTER -->
     <footer class="footer">
 
-        <p>Copyright &copy; 2026 | Zeina Vanka Azahra</p>
+        <p>&copy; 2026 | Zeina Vanka Azahra</p>
 
         <div class="footer-social">
 
-            <!-- EMAIL -->
-            <a href="mailto:zeinavankaazahra@gmail.com">
+            <a href="mailto:zeinavankaazahra@gmail.com"
+               title="Email">
                 <i class="bi bi-envelope-fill"></i>
             </a>
 
-            <!-- TELEPON -->
-            <a href="tel:085794574787">
+            <a href="tel:085794574787"
+               title="Telepon">
                 <i class="bi bi-telephone-fill"></i>
             </a>
 
-            <!-- ALAMAT -->
-            <a href="https://www.google.com/maps/search/?api=1&query=Panawangan+Ciamis" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-geo-alt-fill"></i>
+            <a href="https://www.linkedin.com/in/zeina-vanka-azahra-3124b8449"
+               target="_blank" rel="noopener noreferrer"
+               title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
             </a>
 
-            <!-- INSTAGRAM -->
-            <a href="https://www.instagram.com/zeii_v.a/" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-instagram"></i>
-            </a>
-
-            <!-- TIKTOK -->
-            <a href="https://www.tiktok.com/@a_v_z21" target="_blank" rel="noopener noreferrer">
-                <i class="bi bi-tiktok"></i>
+            <a href="https://github.com/Zeinavankaazahra"
+               target="_blank" rel="noopener noreferrer"
+               title="GitHub">
+                <i class="bi bi-github"></i>
             </a>
 
         </div>
